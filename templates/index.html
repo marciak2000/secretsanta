@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa</title>
+</head>
+<body>
+    <h1>ZROBIŁAM PROGRAM DO SECRET SANTA CO JEST!!!!!</h1>
+    <form method="post">
+        <label for="name">Choose your name:</label>
+        <select id="name" name="name">
+            {% for name in names %}
+                <option value="{{ name }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <input type="submit" value="Generate Gift Recipient">
+        <p><a href="{{ url_for('reset') }}">resetuj</a></p>
+    </form>
+    
+
+</body>
+</html>

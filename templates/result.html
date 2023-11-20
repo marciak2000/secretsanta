@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa Result</title>
+</head>
+<body>
+
+    {% if reset_message %}
+    <h1>WIELKI RESET</h1>
+    <p>{{ reset_message }}</p>
+    <form action="{{ url_for('home') }}">
+        <input type="submit" value="Return to Home">
+    </form>
+{% else %}
+    {% if selected_name %}
+        <h1>WYNIK:</h1>
+        <p>{{ selected_name }}, your gift recipient is {{ recipient }}!</p>
+        <!-- Return button for the home page -->
+        <form action="{{ url_for('home') }}">
+            <input type="submit" value="Return to Home">
+        </form>
+    {% else %}
+        <p>No gift recipient generated yet. Click the button on the home page to generate one!</p>
+    {% endif %}
+{% endif %}
+
+</body>
+</html>
